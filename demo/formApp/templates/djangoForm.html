@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+    <title>
+
+    </title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}<!-- This creates a token on ther server side when 
+        the form is loaded and compares it with the one with the incoming request hence protecting
+        against CSRF attaks-->
+        {{form.as_ul}}
+        <input type="submit" value="submit">
+    </form>
+</body>
