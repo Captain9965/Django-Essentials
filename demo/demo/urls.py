@@ -19,4 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("formApp.urls")),
+    path('',include("templateApp.urls")),
+    path('',include("viewApp.urls")),
+    path('',include('modelApp.urls')),
 ]

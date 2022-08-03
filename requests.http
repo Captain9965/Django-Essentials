@@ -1,0 +1,10 @@
+@host=127.0.0.1:8000
+
+//test_stk_endpoint
+
+###
+GET http://{{host}}/view/
+Host:{{host}}
+Content-Type: application/json
+
+###

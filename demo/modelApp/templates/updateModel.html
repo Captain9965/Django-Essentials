@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <title>
+
+    </title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %} 
+        <label for="model">Car Model </label>
+        <input id="model" type="text" name="model" required= "false" placeholder={{ model }}>
+        <hr/>
+        <label for="cc">Engine Capacity </label>
+        <input id="cc" type="text" name="engine_capacity" required= "false" placeholder={{ engine_capacity }}>
+        <hr/>
+        <input type="submit" value="update">
+    </form>
+</body>

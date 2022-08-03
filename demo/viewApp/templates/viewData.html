@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>
+    </title>
+</head>
+<body>
+    <h2>
+       This is the data contained in the database:
+    </h2>
+    <ul>
+        {% for item in object_list %}
+         {{ item.model }}<br/>
+         {{ item.engine_capacity }}<br/>
+         <hr/>
+         {% empty %}
+         <li> No objects yet </li>
+        {% endfor %}
+    </ul>
+</body>

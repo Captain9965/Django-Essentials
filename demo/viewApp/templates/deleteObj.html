@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <title>
+
+    </title>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}<!-- This creates a token on ther server side when 
+        the form is loaded and compares it with the one with the incoming request hence protecting
+        against CSRF attaks-->
+            Are you sure you want to delete this item?
+        <input type="submit" value="Yes">
+        <a href="/listview/"> Cancel </a>
+    </form>
+</body>
