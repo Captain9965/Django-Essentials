@@ -11,6 +11,8 @@
         {% for item in object_list %}
          {{ item.model }}<br/>
          {{ item.engine_capacity }}<br/>
+         {{ item.slug }}</br>
+         <a href="/model/{{ item.slug }}" class=”btn btn-primary”>View</a>
          <hr/>
          {% empty %}
          <li> No objects yet </li>

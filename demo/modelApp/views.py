@@ -21,15 +21,24 @@ def createModel(request):
     context = {}
     return render(request, "createModel.html", context)
 
-def listObjects(request):
+def listObjects(request):  
     try:
         objects = v.objects.all();
     except Exception as e:
         print(e)
         return HttpResponseRedirect("/model/createmodel/")
+
     context = {}
     context['object_list'] = objects if objects is not None else None
-    return render(request, "viewModel.html", context)
+    response = HttpResponse(render(request, "viewModel.html", context))
+
+    """ testing session cookies: """
+
+    response.set_cookie('visits',int(request.COOKIES.get('visits', 1)) +1)
+    print("visits-> %d"%int(request.COOKIES.get('visits',1)))
+
+    """ end of cookies test """
+    return response
 
 def updateModel(request, id):
     context = {}
@@ -59,3 +68,17 @@ def updateModel(request, id):
         print(e)
         return HttpResponse("Error occured, contact Admin")
     return render(request, "updateModel.html", context)
+
+def slugView(request, slug):
+    print(slug)
+    object = v.objects.filter(slug__iexact = slug)
+    if object.exists():
+        object = object.first()
+    else:
+        return HttpResponse('<h1> vehicle model not found </h1>')
+    context = {
+        'object': object
+    }
+    return render(request, "showObject.html",context)
+
+
