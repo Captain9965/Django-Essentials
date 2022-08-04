@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include("templateApp.urls")),
     path('',include("viewApp.urls")),
     path('',include('modelApp.urls')),
+    path('',include('restApp.urls')),
 ]
